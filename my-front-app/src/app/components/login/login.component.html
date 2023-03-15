@@ -1,0 +1,11 @@
+<div class="login">
+	<h1>Login</h1>
+    <form method="post" (submit)="login()">
+    	<input type="text" name="username" [(ngModel)]="username" placeholder="Username" required="required" />
+        <input type="password" name="password" [(ngModel)]="password" placeholder="Password" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+    </form>
+
+    <h1>Message : </h1>  <div *ngIf="message"><h1>{{ message }}</h1> </div>
+
+</div>
