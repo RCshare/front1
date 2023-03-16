@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoginResponse } from '@app/models/login-response.model';
-import { LoginService } from '@services/loginService/login.service';
+import { AuthService } from '@app/services/loginService/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,15 +13,17 @@ export class LoginComponent {
   password = '';
   message = '';
 
-  constructor(private userService: LoginService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   login(): void {
-    this.userService.login(this.username, this.password)
+    this.authService.login(this.username, this.password)
       .subscribe({
         next: (loginResponse: LoginResponse) => {
-          this.message = loginResponse.message;
+          this.message = "connexion en cours"; 
+          localStorage.setItem('token', loginResponse.token);
+          this.router.navigate(['/']); 
         },
-        error: (error) => {
+        error: (error: any) => {
           console.error(error);
           this.message = 'An error occurred while logging in.';
         }
