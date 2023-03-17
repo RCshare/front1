@@ -32,21 +32,5 @@
   }
 // Ajoutez ce code à la fin du fichier
 
-::ng-deep .mat-tab-label {
-    color: #FFFFFF !important; // Couleur du texte des onglets (blanc)
-    font-weight: 600 !important; // Poids de la police pour améliorer la lisibilité
-    background-color: #283593 !important; // Couleur d'arrière-plan des onglets (bleu très foncé)
-    padding: 8px 16px !important; // Espacement intérieur pour rendre les onglets plus grands
-    border-radius: 4px !important; // Arrondir les coins des onglets
-    margin-right: 4px !important; // Espacement entre les onglets
-    transition: background-color 0.3s ease !important; // Transition en douceur lors du survol de la souris
-  }
-  
-  ::ng-deep .mat-tab-label:hover {
-    background-color: #3949AB !important; // Couleur d'arrière-plan des onglets lorsqu'ils sont survolés (bleu foncé)
-  }
-  
-  ::ng-deep .mat-tab-label.mat-tab-label-active {
-    background-color: #1E88E5 !important; // Couleur d'arrière-plan de l'onglet actif (bleu vif)
-  }
-  
+
+

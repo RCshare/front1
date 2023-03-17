@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LoginResponse } from '@app/models/login-response.model';
-import { AuthService } from '@app/services/loginService/auth.service';
+import { AuthService } from '@app/services/login-service/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
