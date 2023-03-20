@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from '@components/home/home.component';
 import { LoginComponent } from '@components/login/login.component';
 import { ChartModule } from './chart/chart.module';
+import { ChartTileComponent } from './components/home/chart-tile/chart-tile.component';
 
 
 
@@ -16,7 +17,8 @@ import { ChartModule } from './chart/chart.module';
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    ChartTileComponent
   ],
   imports: [
     BrowserModule,

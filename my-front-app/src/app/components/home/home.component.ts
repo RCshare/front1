@@ -15,6 +15,8 @@ export class HomeComponent {
   columnChartOptions = {
     animationEnabled: true,
     title: {
+      fontFamily: "Arial", // Ajoutez la famille de police souhaitée ici, par exemple : "Arial", "Verdana", "Tahoma", etc.
+      fontColor: "white",
       text: 'Angular Column Chart in Material UI Tabs',
     },
     data: [
@@ -30,11 +32,30 @@ export class HomeComponent {
         ],
       },
     ],
+    backgroundColor: "rgba(255, 255, 255, 0.1)", // Pour correspondre à la couleur de fond de votre application
+    margin: {
+      left: 10,
+      right: 10,
+      top: 10,
+      bottom: 10,
+    },
+    axisX: {
+      labelFontFamily: "Open Sans", // La police utilisée dans votre application
+      labelFontSize: 12, // La taille de la police
+      labelFontColor: "#ffffff", // La couleur de la police
+    },
+    axisY: {
+      labelFontFamily: "Open Sans",
+      labelFontSize: 12,
+      labelFontColor: "#ffffff",
+    },
   };
 
   pieChartOptions = {
     animationEnabled: true,
     title: {
+      fontFamily: "Arial", // Ajoutez la famille de police souhaitée ici, par exemple : "Arial", "Verdana", "Tahoma", etc.
+      fontColor: "white",
       text: 'Angular Pie Chart in Material UI Tabs',
     },
     theme: 'light2', // "light1", "dark1", "dark2"
@@ -50,11 +71,30 @@ export class HomeComponent {
         ],
       },
     ],
+    backgroundColor: "rgba(255, 255, 255, 0.1)", // Pour correspondre à la couleur de fond de votre application
+    margin: {
+      left: 10,
+      right: 10,
+      top: 10,
+      bottom: 10,
+    },
+    axisX: {
+      labelFontFamily: "Open Sans", // La police utilisée dans votre application
+      labelFontSize: 12, // La taille de la police
+      labelFontColor: "#ffffff", // La couleur de la police
+    },
+    axisY: {
+      labelFontFamily: "Open Sans",
+      labelFontSize: 12,
+      labelFontColor: "#ffffff",
+    },
   };
 
   lineChartOptions = {
     animationEnabled: true,
     title: {
+      fontFamily: "Arial", // Ajoutez la famille de police souhaitée ici, par exemple : "Arial", "Verdana", "Tahoma", etc.
+      fontColor: "white",
       text: 'Angular Line Chart in Material UI Tabs',
     },
     theme: 'light2', // "light1", "dark1", "dark2"
@@ -70,6 +110,23 @@ export class HomeComponent {
         ],
       },
     ],
+    backgroundColor: "rgba(255, 255, 255, 0.1)", // Pour correspondre à la couleur de fond de votre application
+    margin: {
+      left: 10,
+      right: 10,
+      top: 10,
+      bottom: 10,
+    },
+    axisX: {
+      labelFontFamily: "Open Sans", // La police utilisée dans votre application
+      labelFontSize: 12, // La taille de la police
+      labelFontColor: "#ffffff", // La couleur de la police
+    },
+    axisY: {
+      labelFontFamily: "Open Sans",
+      labelFontSize: 12,
+      labelFontColor: "#ffffff",
+    },
   };
 
 

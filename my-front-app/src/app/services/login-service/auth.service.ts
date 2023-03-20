@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, catchError, map, of } from 'rxjs';
-import { LoginResponse } from '@app/models/login-response.model';
+import { LoginResponse } from '@app/models/interface/login-response.model';
 import { UserCredential } from '@app/models/user-credentials.model';
 
 
@@ -57,6 +57,10 @@ export class AuthService {
     } else {
       return of(false);
     }
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem('token');
   }
   
 }  
