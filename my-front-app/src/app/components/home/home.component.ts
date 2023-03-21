@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MethodNode } from '@app/models/method-node.model';
+import { MethodService } from '@app/services/methods-service/method-service.service';
+
 
 @Component({
   selector: 'app-home',
@@ -8,127 +11,22 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
 
+  
+  methods: MethodNode[] = [];
 
-  constructor(private router: Router) {}
 
+  constructor(private router: Router, private methodService: MethodService) {}
 
-  columnChartOptions = {
-    animationEnabled: true,
-    title: {
-      fontFamily: "Arial", // Ajoutez la famille de police souhaitée ici, par exemple : "Arial", "Verdana", "Tahoma", etc.
-      fontColor: "white",
-      text: 'Angular Column Chart in Material UI Tabs',
-    },
-    data: [
-      {
-        // Change type to "doughnut", "line", "splineArea", etc.
-        type: 'column',
-        dataPoints: [
-          { label: 'apple', y: 10 },
-          { label: 'orange', y: 15 },
-          { label: 'banana', y: 25 },
-          { label: 'mango', y: 30 },
-          { label: 'grape', y: 28 },
-        ],
+  ngOnInit() {
+    this.methodService.getAllMethods().subscribe(
+      (methods: MethodNode[]) => {
+        this.methods = methods;
       },
-    ],
-    backgroundColor: "rgba(255, 255, 255, 0.1)", // Pour correspondre à la couleur de fond de votre application
-    margin: {
-      left: 10,
-      right: 10,
-      top: 10,
-      bottom: 10,
-    },
-    axisX: {
-      labelFontFamily: "Open Sans", // La police utilisée dans votre application
-      labelFontSize: 12, // La taille de la police
-      labelFontColor: "#ffffff", // La couleur de la police
-    },
-    axisY: {
-      labelFontFamily: "Open Sans",
-      labelFontSize: 12,
-      labelFontColor: "#ffffff",
-    },
-  };
-
-  pieChartOptions = {
-    animationEnabled: true,
-    title: {
-      fontFamily: "Arial", // Ajoutez la famille de police souhaitée ici, par exemple : "Arial", "Verdana", "Tahoma", etc.
-      fontColor: "white",
-      text: 'Angular Pie Chart in Material UI Tabs',
-    },
-    theme: 'light2', // "light1", "dark1", "dark2"
-    data: [
-      {
-        type: 'pie',
-        dataPoints: [
-          { label: 'apple', y: 10 },
-          { label: 'orange', y: 15 },
-          { label: 'banana', y: 25 },
-          { label: 'mango', y: 30 },
-          { label: 'grape', y: 28 },
-        ],
-      },
-    ],
-    backgroundColor: "rgba(255, 255, 255, 0.1)", // Pour correspondre à la couleur de fond de votre application
-    margin: {
-      left: 10,
-      right: 10,
-      top: 10,
-      bottom: 10,
-    },
-    axisX: {
-      labelFontFamily: "Open Sans", // La police utilisée dans votre application
-      labelFontSize: 12, // La taille de la police
-      labelFontColor: "#ffffff", // La couleur de la police
-    },
-    axisY: {
-      labelFontFamily: "Open Sans",
-      labelFontSize: 12,
-      labelFontColor: "#ffffff",
-    },
-  };
-
-  lineChartOptions = {
-    animationEnabled: true,
-    title: {
-      fontFamily: "Arial", // Ajoutez la famille de police souhaitée ici, par exemple : "Arial", "Verdana", "Tahoma", etc.
-      fontColor: "white",
-      text: 'Angular Line Chart in Material UI Tabs',
-    },
-    theme: 'light2', // "light1", "dark1", "dark2"
-    data: [
-      {
-        type: 'line',
-        dataPoints: [
-          { label: 'apple', y: 10 },
-          { label: 'orange', y: 15 },
-          { label: 'banana', y: 25 },
-          { label: 'mango', y: 30 },
-          { label: 'grape', y: 28 },
-        ],
-      },
-    ],
-    backgroundColor: "rgba(255, 255, 255, 0.1)", // Pour correspondre à la couleur de fond de votre application
-    margin: {
-      left: 10,
-      right: 10,
-      top: 10,
-      bottom: 10,
-    },
-    axisX: {
-      labelFontFamily: "Open Sans", // La police utilisée dans votre application
-      labelFontSize: 12, // La taille de la police
-      labelFontColor: "#ffffff", // La couleur de la police
-    },
-    axisY: {
-      labelFontFamily: "Open Sans",
-      labelFontSize: 12,
-      labelFontColor: "#ffffff",
-    },
-  };
-
+      (error: any) => {
+        console.error(error);
+      }
+    );
+  }
 
   logout(): void {
     localStorage.removeItem('token');

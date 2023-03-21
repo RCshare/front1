@@ -1,0 +1,27 @@
+.mat-tree-node {
+  padding: 8px 0px;
+}
+
+.mat-tree-node-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mat-icon-button {
+  background-color: transparent;
+  border-radius: 50%;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-icon-button:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.mat-icon {
+  font-size: 20px;
+  color: #444;
+}

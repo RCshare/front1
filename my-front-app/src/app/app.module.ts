@@ -8,8 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from '@components/home/home.component';
 import { LoginComponent } from '@components/login/login.component';
-import { ChartModule } from './chart/chart.module';
-import { ChartTileComponent } from './components/home/chart-tile/chart-tile.component';
+import { ChartModule } from './components/home/chart-tile/chart-tile.module';
+import { MethodsTileModule } from '@components/home/methods-tile/methods-tile.module';
 
 
 
@@ -17,8 +17,7 @@ import { ChartTileComponent } from './components/home/chart-tile/chart-tile.comp
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
-    ChartTileComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +25,8 @@ import { ChartTileComponent } from './components/home/chart-tile/chart-tile.comp
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ChartModule
+    ChartModule,
+    MethodsTileModule
   
   ],
   providers: [],
