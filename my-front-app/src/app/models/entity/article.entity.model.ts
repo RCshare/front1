@@ -1,7 +1,11 @@
-import { UserEntity } from "./user.entity.model";
+import { Category } from "./category.entity.model";
+import { PurchaseItem } from "./purchaseItem.entity.model";
 
-export interface ArticleEntity {
+export interface Article {
     id: number;
     name: string;
-    users: UserEntity[];
-}
+    description: string;
+    price: number;
+    category: Category;
+    purchaseItems: PurchaseItem[];
+  }

@@ -2,7 +2,7 @@
     <mat-tab-group dynamicHeight>
       <mat-tab label="Column Chart">
         <ng-template matTabContent>
-          <canvasjs-chart
+          <canvasjs-chart #columnChart
             [options]="columnChartOptions"
             [styles]="{ width: '100%', height: '360px' }"
           ></canvasjs-chart>
@@ -10,7 +10,7 @@
       </mat-tab>
       <mat-tab label="Pie Chart">
         <ng-template matTabContent>
-          <canvasjs-chart
+          <canvasjs-chart #pieChart
             [options]="pieChartOptions"
             [styles]="{ width: '100%', height: '360px' }"
           ></canvasjs-chart>
@@ -18,7 +18,7 @@
       </mat-tab>
       <mat-tab label="Line Chart">
         <ng-template matTabContent>
-          <canvasjs-chart
+          <canvasjs-chart #lineChart
             [options]="lineChartOptions"
             [styles]="{ width: '100%', height: '360px' }"
           ></canvasjs-chart>

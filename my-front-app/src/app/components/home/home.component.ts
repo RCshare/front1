@@ -18,14 +18,14 @@ export class HomeComponent {
   constructor(private router: Router, private methodService: MethodService) {}
 
   ngOnInit() {
-    this.methodService.getAllMethods().subscribe(
-      (methods: MethodNode[]) => {
-        this.methods = methods;
-      },
-      (error: any) => {
-        console.error(error);
-      }
-    );
+    //this.methodService.getAllMethods().subscribe(
+    //  (methods: MethodNode[]) => {
+    //    this.methods = methods;
+    //  },
+    //  (error: any) => {
+    //    console.error(error);
+    //  }
+    //);
   }
 
   logout(): void {

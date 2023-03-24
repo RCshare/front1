@@ -11,7 +11,7 @@ import { UserCredential } from '@app/models/user-credentials.model';
 export class AuthService {
 
 
-  private apiUrl = 'http://localhost:8080';
+  private apiUrl = 'http://localhost:8080/api/v1/auth';
 
   constructor(private http: HttpClient) {}
 
@@ -20,12 +20,12 @@ export class AuthService {
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Basic ${encodedCredentials}`
     });
-
-    const body = { 'username': username, 'password': password };
-    
-    return this.http.post<any>(`${this.apiUrl}/authenticate`, body, { headers });
+    const data = {
+      email: username,
+      password: password,
+    };
+    return this.http.post<any>(`${this.apiUrl}/authenticate`, data, { headers });
   }
 
   

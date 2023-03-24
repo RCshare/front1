@@ -1,8 +1,14 @@
-import { ArticleEntity } from "./article.entity.model";
+import { Purchase } from "./purchase.entity.model";
 
-export interface UserEntity {
-    id: number;
-    username: string;
-    password: string;
-    favoriteArticles: ArticleEntity[];
+
+export interface User {
+  id: number;
+  firstname: string;
+  lastname: string;
+  email: string;
+  password: string;
+  role: "USER";
+  purchases: Purchase[];
+
+
 }
