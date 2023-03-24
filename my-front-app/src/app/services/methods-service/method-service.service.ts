@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { MethodNode } from '@app/models/method-node.model';
 
@@ -8,11 +8,14 @@ import { MethodNode } from '@app/models/method-node.model';
 })
 export class MethodService {
 
-  private apiUrl = 'http://localhost:8082/methods';
+  private apiUrl = 'http://localhost:8082/api-method/v1';
 
   constructor(private http: HttpClient) { }
 
   getAllMethods(): Observable<MethodNode[]> {
-    return this.http.get<MethodNode[]>(this.apiUrl);
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token') });
+
+    return this.http.get<MethodNode[]>(`${this.apiUrl}/methods`, { headers: headers });
   }
+
 }

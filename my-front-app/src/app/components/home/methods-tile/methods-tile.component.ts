@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
-import { FlatTreeControl } from '@angular/cdk/tree';
+import { FlatTreeControl,NestedTreeControl  } from '@angular/cdk/tree';
 import { MethodNode } from '@app/models/method-node.model';
+import { MethodService } from '@app/services/methods-service/method-service.service';
 
 
 interface FlatMethodNode {
@@ -15,34 +16,52 @@ interface FlatMethodNode {
   styleUrls: ['./methods-tile.component.scss']
 })
 export class MethodsTileComponent {
-  @Input() methods: MethodNode[] = []; // initialiser la propriété avec une valeur par défaut
-
+  treeData: MethodNode[] = [];
   private _transformer = (node: MethodNode, level: number) => {
     return {
       expandable: !!node.children && node.children.length > 0,
       name: node.fileName,
       level: level,
     };
-  }
+  };
 
   treeControl = new FlatTreeControl<FlatMethodNode>(
-    node => node.level,
-    node => node.expandable
+    (node) => node.level,
+    (node) => node.expandable
   );
 
-  treeFlattener = new MatTreeFlattener<MethodNode, FlatMethodNode>(
+  treeFlattener = new MatTreeFlattener(
     this._transformer,
-    node => node.level,
-    node => node.expandable,
-    node => node.children
+    (node) => node.level,
+    (node) => node.expandable,
+    (node) => node.children
   );
 
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
-  constructor() { }
+
+  constructor(private methodService: MethodService) {
+
+    this.dataSource.data = this.treeData;
+
+  }
 
   ngOnInit() {
-    this.dataSource.data = this.methods;
+    let methods: MethodNode[] = [];
+    this.methodService.getAllMethods().subscribe(
+      (methods: MethodNode[]) => {
+        console.log('Received methods:', methods); // Add this line
+
+        this.treeData = methods;
+        this.dataSource.data = this.treeData;
+
+        console.log('this.treeControl =:', this.treeControl); // Add this line
+
+      },
+      (error: any) => {
+        console.error(error);
+      }
+    );
   }
 
   hasChild = (_: number, node: FlatMethodNode) => node.expandable;

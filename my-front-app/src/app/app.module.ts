@@ -11,6 +11,7 @@ import { LoginComponent } from '@components/login/login.component';
 import { ChartModule } from './components/home/chart-tile/chart-tile.module';
 import { MethodsTileModule } from '@components/home/methods-tile/methods-tile.module';
 
+import {MaterialExampleModule} from '../app/material.module';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { MethodsTileModule } from '@components/home/methods-tile/methods-tile.mo
     FormsModule,
     HttpClientModule,
     ChartModule,
-    MethodsTileModule
+    MethodsTileModule,
+    MaterialExampleModule
   
   ],
   providers: [],
